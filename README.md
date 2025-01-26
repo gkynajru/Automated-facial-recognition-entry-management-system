@@ -2,7 +2,7 @@
 
 A smart entry management system using facial recognition technology to control access and manage attendance. The system combines embedded hardware control with AI-powered face detection for secure and automated entry management.
 
-[![Python](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org)
+[![Python](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org)
 [![OpenCV](https://img.shields.io/badge/opencv-%23white.svg?style=flat&logo=opencv&logoColor=white)](https://opencv.org/)
 [![STM32](https://img.shields.io/badge/STM32-F4-03234B?style=flat&logo=stmicroelectronics&logoColor=white)](https://www.st.com/)
 [![ESP32](https://img.shields.io/badge/ESP32-Camera-blue)](https://www.espressif.com/)
@@ -18,10 +18,7 @@ A smart entry management system using facial recognition technology to control a
 - Multi-component architecture for distributed processing
 
 ## 🏗 System Architecture
-┌───────────┐      ┌───────────────────────┐     ┌────────────────┐ 
-│ ESP32-CAM │  ━━━>│         Server        │ ━━━>│    STM32F4     │ 
-│ (Camera)  │      │(Recognition & Web App)│     │(Display & Gate)│ 
-└───────────┘      └───────────────────────┘     └────────────────┘
+┌─────────────┐ ┌──────────────┐ ┌────────────────┐ │ ESP32-CAM │━━━>│ Server │━━━>│ STM32F4 │ │ (Camera) │ │(Recognition & │ │(Display & Gate)│ └─────────────┘ │ Web App) │ └────────────────┘ └──────────────┘
 
 ## 🔧 Components
 

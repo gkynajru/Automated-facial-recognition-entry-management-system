@@ -7,6 +7,9 @@ A smart entry management system using facial recognition technology to control a
 [![STM32](https://img.shields.io/badge/STM32-F4-03234B?style=flat&logo=stmicroelectronics&logoColor=white)](https://www.st.com/)
 [![ESP32](https://img.shields.io/badge/ESP32-Camera-blue)](https://www.espressif.com/)
 
+## 📊 Demo
+[![Demo Video](https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg)](https://youtu.be/uKJgqVJXqQI)
+
 ## ✨ Key Features
 
 - Real-time facial recognition for access control

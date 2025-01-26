@@ -1,4 +1,4 @@
-# 🔐 Automated Facial Recognition Entry Management System
+## 🔐 Automated Facial Recognition Entry Management System
 
 A smart entry management system using facial recognition technology to control access and manage attendance. The system combines embedded hardware control with AI-powered face detection for secure and automated entry management.
 
@@ -59,6 +59,8 @@ pip install -r requirements.txt
   
 ## 🚀 Usage
 
+Note: Check out the "face_recognition_webapp" branch if you just want to use the face recognition feature.
+
 1. **Start the server**:
    
 `python main.py`
@@ -66,8 +68,6 @@ pip install -r requirements.txt
 2. **Access web interface**:
    
 `http://localhost:5000`
-
-![image](https://github.com/user-attachments/assets/0e54b3b6-9492-4996-b866-13267977dd78)
 
 3. **Register new users**:
 - Click "Sign Up"
@@ -81,10 +81,7 @@ pip install -r requirements.txt
 - Gate opens for authorized personnel
 - LED display shows entry status
 
-🎥 Demo
-Watch Demo Video
-
-🛠 Technologies Used
+## 🛠 Technologies Used
 - Face Recognition: face_recognition library, OpenCV
 - Web Framework: Flask, SocketIO
 - Frontend: HTML, JavaScript
@@ -92,9 +89,9 @@ Watch Demo Video
 - Communication: USB, WiFi
 - Database: JSON
   
-🤝 Contributing
+## 🤝 Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-📝 License
+## 📝 License
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/gkynajru/Automated-facial-recognition-entry-management-system/blob/iot_system/LICENSE) for details.
    

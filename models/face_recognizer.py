@@ -23,6 +23,8 @@ class FaceRecognizer:
         self.face_names = []
         self.face_id = []
         self.process_current_frame = True
+        self.face_check_status = 0  # 0: no face, 1: known face, 2: unknown face, 3: too many faces
+        self.current_person_info = None        
         self.load_encodings()
         self.data_manager = DataManager()
 
@@ -54,6 +56,25 @@ class FaceRecognizer:
         # Only process every other frame
         if self.process_current_frame:
             self.face_locations = face_recognition.face_locations(rgb_small_frame)
+
+            # Check number of faces
+            if len(self.face_locations) == 0:
+                self.face_check_status = 0
+                self.current_person_info = None
+                return frame, [], []
+            
+            if len(self.face_locations) > 1:
+                self.face_check_status = 3
+                self.current_person_info = None
+                # Draw warning for too many faces
+                cv2.putText(frame, "Too many people detected", (10, 30), 
+                          cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 255), 2)
+                return frame, [], []
+
+            self.face_encodings = face_recognition.face_encodings(rgb_small_frame, self.face_locations)
+            self.face_names = []
+            self.face_ids = []
+
             self.face_encodings = face_recognition.face_encodings(rgb_small_frame, self.face_locations)
 
             self.face_names = []
@@ -63,19 +84,29 @@ class FaceRecognizer:
                 name = "Unknown"
                 confidence = "Unknown"
                 display_name = "Unknown"
-                person_id = "Unknown"
+                person_id = None
 
                 if True in matches:
                     first_match_index = matches.index(True)
-                    person_id = self.known_names[first_match_index]  # This is the ID
+                    person_id = self.known_names[first_match_index]
                     member_info = self.data_manager.get_member_info(person_id)
+                    
                     if member_info and "Full name" in member_info:
-                        display_name = member_info["Full name"]
+                        name = member_info["Full name"]
+                        self.current_person_info = member_info
+                        self.face_check_status = 1
+                    else:
+                        self.face_check_status = 2
+                        self.current_person_info = None
+                    
                     face_distances = face_recognition.face_distance([self.known_encodings[first_match_index]], face_encoding)
                     confidence = self._face_confidence(face_distances[0])
+                else:
+                    self.face_check_status = 2
+                    self.current_person_info = None
 
-                self.face_names.append((display_name, confidence))
-                self.face_ids.append(person_id)  # Store the ID
+                self.face_names.append((name, confidence))
+                self.face_ids.append(person_id)
 
         self.process_current_frame = not self.process_current_frame
 
@@ -93,8 +124,16 @@ class FaceRecognizer:
             cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (0, 0, 255), cv2.FILLED)
             cv2.putText(frame, label, (left + 6, bottom - 6), cv2.FONT_HERSHEY_DUPLEX, 0.6, (255, 255, 255), 1)
 
-        return frame, self.face_names, self.face_ids  # Return IDs as well
+        return frame, self.face_names, self.face_ids  
 
     def get_recognized_ids(self):
         """Return list of recognized person IDs"""
         return [name for name, _ in self.face_names if name != "Unknown"]
+    
+    def get_face_check_status(self):
+        """Return current face detection status"""
+        return self.face_check_status
+
+    def get_current_person_info(self):
+        """Return info about currently recognized person"""
+        return self.current_person_info    

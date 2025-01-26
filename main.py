@@ -3,24 +3,32 @@ from flask_socketio import SocketIO
 import cv2
 import os
 import time
+import serial
+import urllib.request
 from datetime import datetime
+import numpy as np
 
 from models.face_recognizer import FaceRecognizer
 from models.data_manager import DataManager
 
 app = Flask(__name__)
 socketio = SocketIO(app)
+url = 'http://192.168.137.238/cam-hi.jpg'
 
 # Initialize components
 face_recognizer = FaceRecognizer()
 data_manager = DataManager()
 
-def generate_frames(video_feed):
+def generate_frames():
     while True:
-        success, frame = video_feed.read()
-        if not success:
-            break
-        
+        # success, frame = video_feed.read()
+        # if not success:
+        #     break
+        img_resp= urllib.request.urlopen(url)
+        imgnp=np.array(bytearray(img_resp.read()),dtype=np.uint8)
+        frame = cv2.imdecode(imgnp,-1)
+        frame = cv2.resize(frame, (640, 480))
+
         # Process frame for face recognition
         processed_frame, recognized_faces, face_ids = face_recognizer.process_frame(frame)
         
@@ -42,13 +50,11 @@ def generate_frames(video_feed):
                b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
 
 def generate_webcam_frames():
-    cap = cv2.VideoCapture(0)
     while True:
-        success, frame = cap.read()
-        if not success:
-            break
-        
-        # Convert frame to bytes
+        img_resp= urllib.request.urlopen(url)
+        imgnp=np.array(bytearray(img_resp.read()),dtype=np.uint8)
+        frame = cv2.imdecode(imgnp,-1)
+        frame = cv2.resize(frame, (640, 480))
         ret, buffer = cv2.imencode('.jpg', frame)
         frame_bytes = buffer.tobytes()
         
@@ -66,7 +72,7 @@ def page0():
 @app.route('/video')
 def video():
     return Response(
-        generate_frames(cv2.VideoCapture(0)),
+        generate_frames(),
         mimetype='multipart/x-mixed-replace; boundary=frame'
     )
 

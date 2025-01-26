@@ -36,10 +36,10 @@ def generate_frames():
         imgnp=np.array(bytearray(img_resp.read()),dtype=np.uint8)
         frame = cv2.imdecode(imgnp,-1)
         frame = cv2.resize(frame, (640, 480))
-
+        member_info = face_recognizer.get_current_person_info()
         # Process frame for face recognition
         processed_frame, recognized_faces, face_ids = face_recognizer.process_frame(frame)
-        
+        status = face_recognizer.get_face_check_status()
         # Update recognition status using IDs
         if recognized_faces and face_ids:
             for i, (name, confidence) in enumerate(recognized_faces):
@@ -49,6 +49,16 @@ def generate_frames():
                     if member_info:
                         data_manager.update_attendance(person_id)
                         socketio.emit('faceRegCheck_update', {'peopleID': member_info})
+                        serial_emit(1)
+                        time.sleep(2)
+
+        if status == 3:
+            member_info["Age"] = -2
+            socketio.emit('faceRegCheck_update', {'peopleID': member_info})
+        elif status == 2:
+            serial_emit(0)
+            socketio.emit('faceRegCheck_update', {'peopleID': member_info})
+            time.sleep(2)
 
         # Convert frame to bytes
         ret, buffer = cv2.imencode('.jpg', processed_frame)

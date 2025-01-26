@@ -24,7 +24,7 @@ class FaceRecognizer:
         self.face_id = []
         self.process_current_frame = True
         self.face_check_status = 0  # 0: no face, 1: known face, 2: unknown face, 3: too many faces
-        self.current_person_info = None        
+        self.current_person_info = {"Full name": "", "Age": 0, "Phone number": "", "Last attendance": ""}        
         self.load_encodings()
         self.data_manager = DataManager()
 
@@ -65,7 +65,6 @@ class FaceRecognizer:
             
             if len(self.face_locations) > 1:
                 self.face_check_status = 3
-                self.current_person_info = None
                 # Draw warning for too many faces
                 cv2.putText(frame, "Too many people detected", (10, 30), 
                           cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 255), 2)
@@ -83,7 +82,6 @@ class FaceRecognizer:
                 matches = face_recognition.compare_faces(self.known_encodings, face_encoding, tolerance=0.4)
                 name = "Unknown"
                 confidence = "Unknown"
-                display_name = "Unknown"
                 person_id = None
 
                 if True in matches:

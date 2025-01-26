@@ -1,9 +1,5 @@
 # 🔐 Automated Facial Recognition Entry Management System
 
-<p align="center">
-  <img src="demo/system_logo.png" alt="System Logo" width="200"/>
-</p>
-
 A smart entry management system using facial recognition technology to control access and manage attendance. The system combines embedded hardware control with AI-powered face detection for secure and automated entry management.
 
 [![Python](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org)
@@ -49,6 +45,7 @@ A smart entry management system using facial recognition technology to control a
 git clone https://github.com/gkynajru/Automated-facial-recognition-entry-management-system
 ```
 2. **Install server dependencies**:
+   
 cd Server
 pip install -r requirements.txt
 
@@ -63,18 +60,20 @@ pip install -r requirements.txt
   
 🚀 Usage
 1. **Start the server**:
+   
 python main.py
 
 2. **Access web interface**:
+   
 http://localhost:5000
 
-4. **Register new users**:
+3. **Register new users**:
 - Click "Sign Up"
 - Fill in user information
 - Look at the camera when submitting
 - Wait for confirmation
 
-5. **Regular usage**:
+4. **Regular usage**:
 - Stand in front of the camera
 - System automatically recognizes registered users
 - Gate opens for authorized personnel

@@ -19,6 +19,17 @@ url = 'http://192.168.137.238/cam-hi.jpg'
 face_recognizer = FaceRecognizer()
 data_manager = DataManager()
 
+# Transport check signal to STM32
+def serial_emit(i):
+    ok = b'Welcome' # The person is recognized
+    eror = b'Error' # The person is not recognized
+    ser = serial.Serial('COM5', baudrate= 9600)
+    if i == 1:
+        ser.write(ok)
+    if i == 0:
+        ser.write(eror)
+    return ser
+
 def generate_frames():
     while True:
         img_resp= urllib.request.urlopen(url)

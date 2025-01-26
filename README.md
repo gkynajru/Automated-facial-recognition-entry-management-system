@@ -17,9 +17,6 @@ A smart entry management system using facial recognition technology to control a
 - Secure database for storing member information
 - Multi-component architecture for distributed processing
 
-## 🏗 System Architecture
-┌─────────────┐ ┌──────────────┐ ┌────────────────┐ │ ESP32-CAM │━━━>│ Server │━━━>│ STM32F4 │ │ (Camera) │ │(Recognition & │ │(Display & Gate)│ └─────────────┘ │ Web App) │ └────────────────┘ └──────────────┘
-
 ## 🔧 Components
 
 ### Hardware

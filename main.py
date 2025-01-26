@@ -132,7 +132,7 @@ def submit():
             recognition_script = os.path.join(
                 os.path.dirname(__file__),
                 'models',
-                'recognition.py'
+                'encode_generator.py'
             )
             try:
                 os.system(f'python "{recognition_script}"')

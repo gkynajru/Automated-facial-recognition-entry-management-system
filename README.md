@@ -9,11 +9,7 @@ A smart entry management system using facial recognition technology to control a
 
 ## 📊 Demo
 
-![project](https://github.com/user-attachments/assets/cc39fbe2-8604-4532-be24-f29c58d95ba0)
-
-[![image](https://github.com/user-attachments/assets/77a7f5c8-6462-4f33-a9a5-26bacf39a57e)](https://youtu.be/uKJgqVJXqQI)
-
-[![Link to demo video](https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg)](https://youtu.be/uKJgqVJXqQI)
+[![Watch video](https://github.com/user-attachments/assets/77a7f5c8-6462-4f33-a9a5-26bacf39a57e)](https://youtu.be/uKJgqVJXqQI)
 
 ## ✨ Key Features
 
@@ -64,11 +60,11 @@ pip install -r requirements.txt
 🚀 Usage
 1. **Start the server**:
    
-python main.py
+`python main.py`
 
 2. **Access web interface**:
    
-http://localhost:5000
+`http://localhost:5000`
 
 3. **Register new users**:
 - Click "Sign Up"

@@ -21,9 +21,6 @@ data_manager = DataManager()
 
 def generate_frames():
     while True:
-        # success, frame = video_feed.read()
-        # if not success:
-        #     break
         img_resp= urllib.request.urlopen(url)
         imgnp=np.array(bytearray(img_resp.read()),dtype=np.uint8)
         frame = cv2.imdecode(imgnp,-1)

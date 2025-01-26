@@ -11,7 +11,9 @@ A smart entry management system using facial recognition technology to control a
 
 ![project](https://github.com/user-attachments/assets/cc39fbe2-8604-4532-be24-f29c58d95ba0)
 
-[![Demo Video](https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg)](https://youtu.be/uKJgqVJXqQI)
+[![image](https://github.com/user-attachments/assets/77a7f5c8-6462-4f33-a9a5-26bacf39a57e)](https://youtu.be/uKJgqVJXqQI)
+
+[![Link to demo video](https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg)](https://youtu.be/uKJgqVJXqQI)
 
 ## ✨ Key Features
 
@@ -45,9 +47,10 @@ A smart entry management system using facial recognition technology to control a
 git clone https://github.com/gkynajru/Automated-facial-recognition-entry-management-system
 ```
 2. **Install server dependencies**:
-   
+```bash
 cd Server
 pip install -r requirements.txt
+```
 
 3. **Flash ESP32-CAM firmware**:
 - Open ESP32 code in Arduino IDE

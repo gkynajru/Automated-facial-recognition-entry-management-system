@@ -8,7 +8,9 @@ A smart entry management system using facial recognition technology to control a
 [![ESP32](https://img.shields.io/badge/ESP32-Camera-blue)](https://www.espressif.com/)
 
 ## 📊 Demo
-[![Video Thumbnail](link_to_thumbnail_image)](https://youtu.be/uKJgqVJXqQI)
+
+![project](https://github.com/user-attachments/assets/cc39fbe2-8604-4532-be24-f29c58d95ba0)
+
 [![Demo Video](https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg)](https://youtu.be/uKJgqVJXqQI)
 
 ## ✨ Key Features

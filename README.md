@@ -57,7 +57,8 @@ pip install -r requirements.txt
 - Open STM32 project in STM32CubeIDE
 - Build and flash firmware
   
-🚀 Usage
+## 🚀 Usage
+
 1. **Start the server**:
    
 `python main.py`
@@ -65,6 +66,8 @@ pip install -r requirements.txt
 2. **Access web interface**:
    
 `http://localhost:5000`
+
+![image](https://github.com/user-attachments/assets/0e54b3b6-9492-4996-b866-13267977dd78)
 
 3. **Register new users**:
 - Click "Sign Up"

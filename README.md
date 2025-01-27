@@ -13,7 +13,7 @@ A smart entry management system using facial recognition technology to control a
 
 ## [Link to the video](https://youtu.be/uKJgqVJXqQI)
 
-## ✨ Key Features
+### ✨ Key Features
 
 - Real-time facial recognition for access control
 - Automated barrier gate control using servo motor

@@ -11,7 +11,7 @@ A smart entry management system using facial recognition technology to control a
 
 [![Watch video](https://github.com/user-attachments/assets/77a7f5c8-6462-4f33-a9a5-26bacf39a57e)](https://youtu.be/uKJgqVJXqQI)
 
-## [Link to the video](https://youtu.be/uKJgqVJXqQI)
+* [Link to the video](https://youtu.be/uKJgqVJXqQI) *
 
 ### ✨ Key Features
 

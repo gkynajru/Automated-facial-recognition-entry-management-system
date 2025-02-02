@@ -61,7 +61,7 @@ pip install -r requirements.txt
   
 ## 🚀 Usage
 
-Note: Check out the "face_recognition_webapp" branch if you just want to use the face recognition feature.
+Note: Check out the "face_recognition_webapp" branch if you just want to use the face recognition feature (you must have a webcam to use).
 
 1. **Start the server**:
    
